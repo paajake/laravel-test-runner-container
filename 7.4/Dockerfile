@@ -34,11 +34,9 @@ RUN apt-get install -y \
 
 #xdebug
 RUN pecl install xdebug
-
 RUN echo "zend_extension=/usr/lib/php/20190902/xdebug.so" > /etc/php/7.4/cli/php.ini
 
 #/etc/php/7.4/cli/php.ini
-
 # && docker-php-ext-enable xdebug
 
 # composer
