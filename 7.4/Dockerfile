@@ -33,6 +33,8 @@ RUN apt-get install -y \
     php-pear
 
 #xdebug
+RUN php -i | grep php.ini
+
 RUN pecl install xdebug && docker-php-ext-enable xdebug
 
 # composer
