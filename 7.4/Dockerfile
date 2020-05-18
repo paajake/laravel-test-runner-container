@@ -34,7 +34,8 @@ RUN apt-get install -y \
 
 #xdebug
 RUN pecl install xdebug \
-    docker-php-ext-enable xdebug
+    docker-php-ext-enable xdebug \
+    php --ini
 
 # composer
 ENV COMPOSER_HOME=/composer
