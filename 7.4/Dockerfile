@@ -6,6 +6,8 @@ ENV GOSS_VERSION="0.3.6"
 
 RUN apt-get update && apt-get install -y software-properties-common curl
 RUN add-apt-repository ppa:ondrej/php -y
+RUN pecl install xdebug \
+    && docker-php-ext-enable xdebug
 RUN apt-get update -y
 RUN apt-get install -y \
     unzip  \
