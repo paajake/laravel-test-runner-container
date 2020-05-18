@@ -30,6 +30,10 @@ RUN apt-get install -y \
     php7.3-redis \
     php7.3-imap
 
+#xdebug
+RUN pecl install xdebug \
+    && docker-php-ext-enable xdebug
+
 # composer
 ENV COMPOSER_HOME=/composer
 ENV PATH=./vendor/bin:/composer/vendor/bin:/root/.yarn/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
