@@ -8,6 +8,7 @@ RUN apt-get update && apt-get install -y software-properties-common curl
 RUN add-apt-repository ppa:ondrej/php -y
 RUN apt-get update -y
 RUN apt-get install -y \
+    php7.4  \
     unzip  \
     php7.4-cli \
     php7.4-gd \
@@ -31,9 +32,8 @@ RUN apt-get install -y \
     php7.4-imap
 
 #xdebug
-#RUN pecl install xdebug \
-#    && docker-php-ext-enable xdebug
-RUN docker-php-ext-install xdebug
+RUN pecl install xdebug \
+    && docker-php-ext-enable xdebug
 
 # composer
 ENV COMPOSER_HOME=/composer
