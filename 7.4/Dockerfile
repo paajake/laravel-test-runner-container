@@ -33,8 +33,8 @@ RUN apt-get install -y \
     php-pear
 
 #xdebug
-RUN pecl install xdebug \
-    pecl config-set php_ini /etc/php/7.4/cli/php.ini
+RUN pecl install xdebug
+RUN pecl config-set php_ini /etc/php/7.4/cli/php.ini
 
 # && docker-php-ext-enable xdebug
 
