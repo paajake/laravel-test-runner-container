@@ -8,6 +8,7 @@ RUN apt-get update && apt-get install -y software-properties-common curl
 RUN add-apt-repository ppa:ondrej/php -y
 RUN apt-get update -y
 RUN apt-get install -y \
+    php7.4-dev  \
     unzip  \
     php7.4-cli \
     php7.4-gd \
