@@ -31,9 +31,9 @@ RUN apt-get install -y \
     php7.4-imap
 
 #xdebug
-RUN pecl install xdebug \
-    && docker-php-ext-enable xdebug
-#RUN docker-php-ext-install xdebug
+#RUN pecl install xdebug \
+#    && docker-php-ext-enable xdebug
+RUN docker-php-ext-install xdebug
 
 # composer
 ENV COMPOSER_HOME=/composer
