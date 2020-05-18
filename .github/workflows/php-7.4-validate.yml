@@ -4,7 +4,7 @@ jobs:
   validate:
     runs-on: ubuntu-latest
     container:
-      image: paajake/laravel-test-runner:7.4
+      image: kirschbaumdevelopment/laravel-test-runner:7.4
 
     steps:
     - uses: actions/checkout@v1
