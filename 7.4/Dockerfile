@@ -6,8 +6,6 @@ ENV GOSS_VERSION="0.3.6"
 
 RUN apt-get update && apt-get install -y software-properties-common curl
 RUN add-apt-repository ppa:ondrej/php -y
-RUN pecl install xdebug \
-    && docker-php-ext-enable xdebug
 RUN apt-get update -y
 RUN apt-get install -y \
     unzip  \
@@ -33,9 +31,10 @@ RUN apt-get install -y \
     php7.4-imap
 
 #xdebug
-#RUN pecl install xdebug \
-#    && docker-php-ext-enable xdebug
-RUN docker-php-ext-install xdebug
+RUN pecl install xdebug \
+    && docker-php-ext-enable xdebug
+#RUN docker-php-ext-install xdebug
+
 # composer
 ENV COMPOSER_HOME=/composer
 ENV PATH=./vendor/bin:/composer/vendor/bin:/root/.yarn/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
