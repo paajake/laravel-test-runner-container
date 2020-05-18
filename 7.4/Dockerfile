@@ -33,9 +33,10 @@ RUN apt-get install -y \
     php-pear
 
 #xdebug
-RUN php -i | grep php.ini
+RUN pecl install xdebug \
+    pecl config-set php_ini /etc/php/7.4/cli/php.ini
 
-RUN pecl install xdebug && docker-php-ext-enable xdebug
+# && docker-php-ext-enable xdebug
 
 # composer
 ENV COMPOSER_HOME=/composer
