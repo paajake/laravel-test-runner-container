@@ -1,5 +1,5 @@
 FROM ubuntu:18.04
-LABEL maintainer="Luis Dalmolin <luis@kirschbaumdevelopment.com>"
+LABEL maintainer="Paa JAKE <paajake@gmail.com>"
 ARG DEBIAN_FRONTEND=noninteractive
 
 ENV GOSS_VERSION="0.3.6"
@@ -28,7 +28,13 @@ RUN apt-get install -y \
     php7.2-intl \
     php7.2-imagick \
     php7.2-redis \
-    php7.2-imap
+    php7.2-imap \
+    php7.2-dev \
+    php-pear
+    
+#xdebug
+RUN pear config-set php_ini /etc/php/7.2/cli/php.ini
+RUN pecl install xdebug
 
 # composer
 ENV COMPOSER_HOME=/composer
@@ -46,7 +52,7 @@ RUN apt-get install -y mysql-client
 RUN apt-get install -y git
 
 # node and yarn
-RUN curl -sL https://deb.nodesource.com/setup_9.x | bash -
+RUN curl -sL https://deb.nodesource.com/setup_10.x | bash -
 RUN apt-get install -y nodejs
 RUN npm install -g yarn
 

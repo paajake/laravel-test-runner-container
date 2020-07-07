@@ -1,5 +1,5 @@
 FROM ubuntu:18.04
-LABEL maintainer="Luis Dalmolin <luis@kirschbaumdevelopment.com>"
+LABEL maintainer="Paa JAKE <paajake@gmail.com>"
 ARG DEBIAN_FRONTEND=noninteractive
 
 ENV GOSS_VERSION="0.3.6"
@@ -8,7 +8,6 @@ RUN apt-get update && apt-get install -y software-properties-common curl
 RUN add-apt-repository ppa:ondrej/php -y
 RUN apt-get update -y
 RUN apt-get install -y \
-    php7.4-dev  \
     unzip  \
     php7.4-cli \
     php7.4-gd \
@@ -30,14 +29,12 @@ RUN apt-get install -y \
     php7.4-imagick \
     php7.4-redis \
     php7.4-imap \
+    php7.4-dev  \
     php-pear
 
 #xdebug
+RUN pear config-set php_ini /etc/php/7.4/cli/php.ini
 RUN pecl install xdebug
-RUN echo "zend_extension=/usr/lib/php/20190902/xdebug.so" > /etc/php/7.4/cli/php.ini
-
-#/etc/php/7.4/cli/php.ini
-# && docker-php-ext-enable xdebug
 
 # composer
 ENV COMPOSER_HOME=/composer
@@ -55,7 +52,7 @@ RUN apt-get install -y mysql-client
 RUN apt-get install -y git
 
 # node and yarn
-RUN curl -sL https://deb.nodesource.com/setup_9.x | bash -
+RUN curl -sL https://deb.nodesource.com/setup_10.x | bash -
 RUN apt-get install -y nodejs
 RUN npm install -g yarn
 
